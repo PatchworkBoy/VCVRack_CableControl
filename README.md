@@ -10,3 +10,5 @@ level 127.
 * When disconnected, the matching pair transmit level 0.
 
 Attach tip connector of 3.5mm socket to each GPIO pin. Short with mono 3.5mm patch leads. Done!
+
+GPIO0 & 1 are skipped as I intend to use the UART to link multiple Picos to one "master"
