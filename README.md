@@ -1,7 +1,7 @@
 # VCVRack_CableControl
-A virtual cable controller for VCVRack which requires nothing more than a Raspberry Pi Pico. Written in CircuitPython
+A virtual cable controller for VCVRack which requires nothing more than a Raspberry Pi Pico (or other CircuitPython compatible Microcontroller). Written in CircuitPython
 
-Use with Stoermelder's VCVRack Pack-Tau T7 modules to map MIDI CC to module ports in VCVRack: https://github.com/stoermelder/vcvrack-packtau
+Use with Stoermelder's (experimental) **VCVRack-PackTau** T7 modules to map MIDI CC to module ports in VCVRack: https://github.com/stoermelder/vcvrack-packtau
 
 * GPIO2-14 are (potentially stackable) outputs mapped to MIDI CC1-13 Ch1
 * GPIO15-27 are (non-stackable) inputs mapped to MIDI CC14-26 Ch1
