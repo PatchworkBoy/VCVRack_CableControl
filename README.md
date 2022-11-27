@@ -3,8 +3,8 @@ A virtual cable controller for VCVRack which requires nothing more than a Raspbe
 
 Use with Stoermelder's VCVRack Pack-Tau T7 modules to map MIDI CC to module ports in VCVRack: https://github.com/stoermelder/vcvrack-packtau
 
-* GPIO2-14 are (potentially) stackable outputs mapped to MIDI CC1-13 Ch1
-* GPIO15-27 are non-stackable inputs mapped to MIDI CC14-26 Ch1
+* GPIO2-14 are (potentially stackable) outputs mapped to MIDI CC1-13 Ch1
+* GPIO15-27 are (non-stackable) inputs mapped to MIDI CC14-26 Ch1
 * When outputs are shorted to inputs, the matching pair of MIDI CC transmit
 level 127.
 * When disconnected, the matching pair transmit level 0
@@ -13,6 +13,8 @@ level 127.
 Attach tip connector of 3.5mm socket to each GPIO pin. Short with mono 3.5mm patch leads. Done!
 
 GPIO0 & 1 are skipped as I intend to use the UART to link multiple Picos to one "master". Really any expansion needs doing over i2c or SPI. This is all just a quick dirty example.
+
+**What's happening on the Pico:** ALL GPIO PINS are set as input and pulled high in the code. GPIO Pins 2 thru 14 are switched to outputs one at a time and pulled low and then GPIO Pins 15 thru 27 are scanned for any also pulled low. Their state is compared against and a statematrix dictionary object - if the state changes, the relevant MIDI CC codes are sent to reflect the change - then the statematrix updated to store the latest current state. The current GPIO Output is then switched back to an input pulled high, and moves on to the next output pin. This prevents any pair of pins being set as an Output simultaneously, as a short between two pins set as Outputs would damage the Pico. This scanning process runs in a continuous loop.
 
 ![PiPico GPIO Pins](https://cdn-learn.adafruit.com/assets/assets/000/099/339/large1024/raspberry_pi_Pico-R3-Pinout-narrow.png)
 
