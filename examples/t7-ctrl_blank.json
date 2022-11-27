@@ -1,0 +1,404 @@
+[
+  {
+    "events": [],
+    "driverName": "MidiCcTwoMessageToggle"
+  },
+  {
+    "events": [
+      // ----------------------- outputs!!
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 1,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "output",
+          "portId": 
+        },
+        "cableColor": "#ffff00",
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 2,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "output",
+          "portId": 
+        },
+        "cableColor": "#0000ff",
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 3,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "output",
+          "portId": 
+        },
+        "cableColor": "#ffff00",
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 4,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "output",
+          "portId": 
+        },
+        "cableColor": "#0000ff",
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 5,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "output",
+          "portId": 
+        },
+        "cableColor": "#0000ff",
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 6,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "output",
+          "portId": 
+        },
+        "cableColor": "#ffff00",
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 7,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "output",
+          "portId": 
+        },
+        "cableColor": "#0000ff",
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 8,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "output",
+          "portId": 
+        },
+        "cableColor": "#ffff00",
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 9,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "output",
+          "portId": 
+        },
+        "cableColor": "#0000ff",
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 10,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "output",
+          "portId": 
+        },
+        "cableColor": "#ffff00",
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 11,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "output",
+          "portId": 
+        },
+        "cableColor": "#0000ff",
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 12,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "output",
+          "portId": 
+        },
+        "cableColor": "#ffff00",
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 13,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "output",
+          "portId": 
+        },
+        "cableColor": "#0000ff",
+        "comment": ""
+      },
+      // ----------------------- inputs!!
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 14,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "input",
+          "portId": 
+        },
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 15,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "input",
+          "portId": 
+        },
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 16,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "input",
+          "portId": 
+        },
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 17,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "input",
+          "portId": 
+        },
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 18,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "input",
+          "portId": 
+        },
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 19,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "input",
+          "portId": 
+        },
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 20,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "input",
+          "portId": 
+        },
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 21,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "input",
+          "portId": 
+        },
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 22,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "input",
+          "portId": 
+        },
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 23,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "input",
+          "portId": 
+        },
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 24,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "input",
+          "portId": 
+        },
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 25,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "input",
+          "portId": 
+        },
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 26,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "input",
+          "portId": 
+        },
+        "comment": ""
+      },
+      {
+        "type": "cable",
+        "midi": {
+          "channel": 1,
+          "cc": 27,
+          "ccValue": 127
+        },
+        "target": {
+          "moduleId": ,
+          "portType": "input",
+          "portId": 
+        },
+        "comment": ""
+      }
+    ],
+    "driverName": "MidiCcTwoMessageGate"
+  }
+]
