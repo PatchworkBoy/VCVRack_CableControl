@@ -46,3 +46,7 @@ Once you've got that done for all the ports in the file, select all > copy. Righ
 **NOTE: T7-MIDI module MUST be adjacent to the right of the T7-CTRL module for MIDI commands to be transmitted from T7-MIDI to T7-CTRL. Select the PiPico midi device in T7-MIDI.**
 
 Now start shorting your Pins and watch cables appear between the mapped ports, and disappear when you unshort.
+
+### References: 
+* Initial software concept at https://community.vcvrack.com/t/module-to-connect-disconnect-rack-cables-over-midi/9101
+* Excellent implementation whose video got me investigating - https://midilar-controller.webnode.sk/midilar-knots/
