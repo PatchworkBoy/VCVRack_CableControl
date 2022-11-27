@@ -39,14 +39,14 @@ Open examples/t7-ctrl_blank.json in a text editor... add/paste the relevant modu
 
 ![completed codeblock](https://github.com/PatchworkBoy/VCVRack_CableControl/raw/main/media/completedblock.jpg)
 
-Once you've got that done for all the ports in the file, select all > copy. Right click T7-Ctrl > Paste JSON. 
+Once you've got that done for all the ports in the file, select all > copy. Right click T7-Ctrl > Paste JSON Mapping. (This gets stored in the VCVRack file on save)
 
 ![Context Menu of T7-CTRL](https://github.com/PatchworkBoy/VCVRack_CableControl/raw/main/media/copy_paste_json.jpg)
 
 **NOTE: T7-MIDI module MUST be adjacent to the right of the T7-CTRL module for MIDI commands to be transmitted from T7-MIDI to T7-CTRL. Select the PiPico midi device in T7-MIDI.**
 
-Now start shorting your Pins and watch cables appear between the mapped ports, and disappear when you unshort.
+Now start shorting your Pins (or if you've added sockets etc, patching your cables) and watch cables appear onscreen between the mapped ports, and disappear when you unshort.
 
 ### References: 
-* Initial software concept at https://community.vcvrack.com/t/module-to-connect-disconnect-rack-cables-over-midi/9101
-* Excellent implementation whose video got me investigating - https://midilar-controller.webnode.sk/midilar-knots/
+* Initial software concept at https://community.vcvrack.com/t/module-to-connect-disconnect-rack-cables-over-midi/9101 - thanks to the fabulous [Stoermelder](https://github.com/stoermelder), [Ligant](https://community.vcvrack.com/u/ligant/summary), and [MudJakub (MidiLar)](https://community.vcvrack.com/u/mudjakub/summary) o'er at VCV communities forum.
+* [MudJakub (MidiLar)](https://community.vcvrack.com/u/mudjakub/summary) - Excellent implementation whose video got me investigating - https://midilar-controller.webnode.sk/midilar-knots/
