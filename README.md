@@ -14,6 +14,8 @@ Attach tip connector of 3.5mm socket to each GPIO pin. Short with mono 3.5mm pat
 
 GPIO0 & 1 are skipped as I intend to use the UART to link multiple Picos to one "master". Really any expansion needs doing over i2c or SPI. This is all just a quick dirty example.
 
+![PiPico GPIO Pins](https://cdn-learn.adafruit.com/assets/assets/000/099/339/large1024/raspberry_pi_Pico-R3-Pinout-narrow.png)
+
 If running multiples as it stands, change MIDI channels in code and **don't link across Picos**.
 
 ## Usage Example
