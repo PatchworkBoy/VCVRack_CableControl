@@ -19,9 +19,7 @@ midi = adafruit_midi.MIDI(
 
 # Convert channel numbers at the presentation layer to the ones musicians use
 print("Default output channel:", midi.out_channel + 1)
-print("Listening on input channel:", midi.in_channel + 1)
 
-print("Monitoring matrix for connections...")
 outpins = (board.GP2, board.GP3, board.GP4, board.GP5, board.GP6, board.GP7, board.GP8,
            board.GP9, board.GP10, board.GP11, board.GP12, board.GP13, board.GP14)
 out_pin_start = 0
@@ -123,20 +121,12 @@ def checkpin(outpin):
 build_state_matrix()
 build_gpio_matrix()
 
+print("Monitoring matrix for connections...")
+
 y = out_pin_start
-start_time = time.monotonic_ns()
 while y < out_pin_count:
-    lastrow = time.monotonic_ns()
     checkpin(y)
     if y == out_pin_count - 1:
         y = out_pin_start
-        # now = time.monotonic_ns()
-        # run_time = now - start_time
-        # print(f"completed matrix {run_time}ms")
-        # print(statematrix)
-        # start_time = time.monotonic()
     else:
         y += 1
-        # now = time.monotonic()
-        # run_time = now - lastrow
-        # print(f"row time {run_time}ms")
