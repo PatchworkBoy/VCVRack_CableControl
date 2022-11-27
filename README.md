@@ -1,18 +1,18 @@
 # VCVRack_CableControl
-A virtual cable controller for VCVRack which requires nothing more than a Raspberry Pi Pico (or other CircuitPython compatible Microcontroller). Written in CircuitPython
+A virtual cable controller for VCVRack which requires nothing more than a Raspberry Pi Pico (or other CircuitPython compatible Microcontroller). Written in CircuitPython. Provides 26x physical sockets which can be distribtued as inputs or outputs via entries at lines 23 & 27 of code.py, which are remapped to MIDI CC gates (1-indexed sequentially, outputs then inputs). MIDI Output channel is set at end of line 17 (0-indexed in code, becomes 1-indexed in reality) 
 
-Use with Stoermelder's (experimental) **VCVRack-PackTau** T7 modules to map MIDI CC to module ports in VCVRack: https://github.com/stoermelder/vcvrack-packtau
+Use with Stoermelder's (experimental) **VCVRack-PackTau** T7 modules which maps MIDI CC Gates to module i/o ports in VCVRack: https://github.com/stoermelder/vcvrack-packtau
 
 * GPIO2-14 are (potentially stackable) outputs mapped to MIDI CC1-13 Ch1
 * GPIO15-27 are (non-stackable) inputs mapped to MIDI CC14-26 Ch1
 * When outputs are shorted to inputs, the matching pair of MIDI CC transmit
 level 127.
 * When disconnected, the matching pair transmit level 0
-* Pack-Tau T7-CTRL/T7-MIDI translate the pairs of MIDI CC Gates into a cable link between ports mapped to those CCs via a JSON file (see examples/ folder)
+* Pack-Tau T7-CTRL/T7-MIDI translate the pairs of MIDI CC Gates into a cable link between ports mapped to those CCs via a JSON file loaded into T7-CTRL module (see examples/ folder)
 
-Attach tip connector of 3.5mm socket to each GPIO pin. Short with mono 3.5mm patch leads. Done!
+To make a physical patch bay: Attach tip connector of 3.5mm socket to each GPIO pin. Short with mono 3.5mm patch leads. Done!
 
-GPIO0 & 1 are skipped as I intend to use the UART to link multiple Picos to one "master". Really any expansion needs doing over i2c or SPI. This is all just a quick dirty example.
+GPIO0 & 1 are skipped as I intend to use the UART to link multiple Picos to one "master". Really any expansion needs doing over i2c or SPI. This is all just a quick dirty example. They can be added into the lists for 28x total physical sockets.
 
 **What's happening on the Pico:** ALL GPIO PINS are set as input and pulled high in the code. GPIO Pins 2 thru 14 are switched to outputs one at a time and pulled low and then GPIO Pins 15 thru 27 are scanned for any also pulled low. Their state is compared against and a statematrix dictionary object - if the state changes, the relevant MIDI CC codes are sent to reflect the change - then the statematrix updated to store the latest current state. The current GPIO Output is then switched back to an input pulled high, and moves on to the next output pin. This prevents any pair of pins being set as an Output simultaneously, as a short between two pins set as Outputs would damage the Pico without additional hardware. This scanning process runs in a continuous loop. A full sweep of the matrix takes around 80ms iirc so that's your rough max latency.
 
