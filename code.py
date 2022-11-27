@@ -46,7 +46,7 @@ def build_state_matrix():
     while x < out_pin_count:
         y = in_pin_start
         row = {}
-        while y <= in_pin_count:
+        while y < in_pin_count:
             z = f"{y}"
             row[z] = 0
             y += 1
