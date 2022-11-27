@@ -14,11 +14,13 @@ To make a physical patch bay: Attach tip connector of 3.5mm socket to each GPIO 
 
 GPIO0 & 1 are skipped as I intend to use the UART to link multiple Picos to one "master". Really any expansion needs doing over i2c or SPI. This is all just a quick dirty example. They can be added into the lists for 28x total physical sockets.
 
-**What's happening on the Pico:** ALL GPIO PINS are set as input and pulled high in the code. GPIO Pins 2 thru 14 are switched to outputs one at a time and pulled low and then GPIO Pins 15 thru 27 are scanned for any also pulled low. Their state is compared against and a statematrix dictionary object - if the state changes, the relevant MIDI CC codes are sent to reflect the change - then the statematrix updated to store the latest current state. The current GPIO Output is then switched back to an input pulled high before moving on to the next output pin. This prevents any pair of pins being set as an Output simultaneously, as a short between two pins set as Outputs would damage the Pico without additional hardware. This scanning process runs in a continuous loop. A full sweep of the matrix takes around 80ms iirc so that's your rough max latency.
+**What's happening on the Pico:** ALL GPIO PINS are set as input with pull-up, defaulting high in the code. GPIO Pins 2 thru 14 are switched to outputs one at a time and pulled low and then GPIO Pins 15 thru 27 are sequentially scanned for any now pulled low (linked). Their state is compared against and a statematrix dictionary object - if the state changes, the relevant MIDI CC codes are sent to reflect the change - then the statematrix updated to store the latest current (inverted) state. The current GPIO Output is then switched back to a pulled-up input before moving on to the next output pin. 
+
+This prevents any pair of pins being set as an Output simultaneously, as a short between two pins set as Outputs would damage the Pico without additional hardware protection. This scanning process runs in a continuous loop. A full sweep of the matrix takes around 80ms iirc so that's your rough max latency.
 
 ![PiPico GPIO Pins](https://cdn-learn.adafruit.com/assets/assets/000/099/339/large1024/raspberry_pi_Pico-R3-Pinout-narrow.png)
 
-If running multiples as the code stands, change MIDI channel in code at line 17 so each Pico outputs on it's own channel (or rewrite the code to remap the ccs from a higher start point to not conflict with an existing Pico on same MIDI Channel), but **don't link across Picos because that isn't handled** and will make a mess (input-bearing Pico will think an input is linked to EVERY output on itself), especially as you now have a situation where an output per Pico may be active *simultaneously*, which could cause Physical Damage if linked **(so definitely don't link outputs of one Pico to outputs of another Pico or you'll risk popping them both)**
+If running multiple Picos as the code stands, change MIDI channel in code at line 17 so each Pico outputs on it's own channel (or rewrite the code to remap the ccs from a higher start point to not conflict with an existing Pico on same MIDI Channel), but **don't link across Picos because that isn't handled** and will make a mess (input-bearing Pico will think an input is linked to EVERY output on itself), especially as you now have a situation where an output per Pico may be active *simultaneously*, which could cause Physical Damage if linked **(so definitely don't link outputs of one Pico to outputs of another Pico or you'll risk popping them both)**
 
 ## Usage Example
 
@@ -39,11 +41,11 @@ Open examples/t7-ctrl_blank.json in a text editor... add/paste the relevant modu
 
 ![completed codeblock](https://github.com/PatchworkBoy/VCVRack_CableControl/raw/main/media/completedblock.jpg)
 
-Once you've got that done for all the ports in the file, select all > copy. Right click T7-Ctrl > Paste JSON Mapping. (This gets stored in the VCVRack file on save)
+Once you've got that done for all the ports in the file (or removed unmapped entries), select all > copy. Right click T7-Ctrl module > Paste JSON Mapping. (This gets stored in the VCVRack file on save)
 
 ![Context Menu of T7-CTRL](https://github.com/PatchworkBoy/VCVRack_CableControl/raw/main/media/copy_paste_json.jpg)
 
-**NOTE: T7-MIDI module MUST be adjacent to the right of the T7-CTRL module for MIDI commands to be transmitted from T7-MIDI to T7-CTRL. Select the PiPico midi device in T7-MIDI.**
+**NOTE: T7-MIDI module MUST be adjacent to the right of the T7-CTRL module for MIDI commands to be transmitted from T7-MIDI to T7-CTRL. Select the PiPico midi device in T7-MIDI. For multiple Picos, just add more T7-MIDI modules to the right. All the mapping goes into the single T7-CTRL instance**
 
 Now start shorting your Pins (or if you've added sockets etc, patching your cables) and watch cables appear onscreen between the mapped ports, and disappear when you unshort.
 
