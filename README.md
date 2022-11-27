@@ -27,10 +27,20 @@ If running multiples as it stands, change MIDI channels in code and **don't link
 * Open examples/t7-ctrl_example.vcv in VCVRack (requires Pack-Tau, BogAudio, Instruo & VCV Fundamentals)
 * Short any of GPIO2-14 to GPIO15-26. **Be careful NOT to inadvertently short to RUN or GND.**
 
-To load a custom map, click ports on your modules and watch T7-Assistant module. Note the moduleId and portId. Open examples/t7-ctrl_blank.json... add the relevant moduleId and PortId (pay attention to the portType in the JSON file - output portIds for output port types, input portIds for input port types) to the CC to be mapped to that port. This maps to the equivalent GPIO pin [CC - 1].
+To load a custom map, click ports on your modules and watch T7-Assistant module. Note the moduleId and portId (you can highlight and copy them from the T7-Assistant display) 
 
-Once you've got that done for the ports you want to play with, select all > copy. Right click T7-Ctrl > Paste JSON. 
+![T7-ASSISTANT](https://github.com/PatchworkBoy/VCVRack_CableControl/raw/main/media/t7-assistant.jpg)
+
+Open examples/t7-ctrl_blank.json in a text editor... add/paste the relevant moduleId and PortId (pay attention to the portType in the JSON file - output portIds for output port types, input portIds for input port types) to the CC to be mapped to that port. This maps to the equivalent GPIO pin [CC - 1].
+
+![codeblock](https://github.com/PatchworkBoy/VCVRack_CableControl/raw/main/media/codeblock.jpg)
+
+![completed codeblock](https://github.com/PatchworkBoy/VCVRack_CableControl/raw/main/media/completedblock.jpg)
+
+Once you've got that done for all the ports in the file, select all > copy. Right click T7-Ctrl > Paste JSON. 
 
 ![Context Menu of T7-CTRL](https://github.com/PatchworkBoy/VCVRack_CableControl/raw/main/media/copy_paste_json.jpg)
 
-**NOTE: T7-MIDI module MUST be adjacent to the right of the T7-CTRL module. Select the PiPico midi device in T7-MIDI.**
+**NOTE: T7-MIDI module MUST be adjacent to the right of the T7-CTRL module for MIDI commands to be transmitted from T7-MIDI to T7-CTRL. Select the PiPico midi device in T7-MIDI.**
+
+Now start shorting your Pins and watch cables appear between the mapped ports, and disappear when you unshort.
