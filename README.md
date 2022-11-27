@@ -33,7 +33,7 @@ To load a custom map, click ports on your modules and watch T7-Assistant module.
 
 ![T7-ASSISTANT](https://github.com/PatchworkBoy/VCVRack_CableControl/raw/main/media/t7-assistant.jpg)
 
-Open examples/t7-ctrl_blank.json in a text editor... add/paste the relevant moduleId and PortId (pay attention to the portType in the JSON file - output portIds for output port types, input portIds for input port types) to the CC to be mapped to that port. This maps to the equivalent GPIO pin [CC - 1].
+Open examples/t7-ctrl_blank.json in a text editor... add/paste the relevant moduleId and PortId (pay attention to the portType in the JSON file - output portIds for output port types, input portIds for input port types) to the CC to be mapped to that port. This maps to the equivalent GPIO pin [CC + 1].
 
 ![codeblock](https://github.com/PatchworkBoy/VCVRack_CableControl/raw/main/media/codeblock.jpg)
 
