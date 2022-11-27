@@ -1,5 +1,5 @@
 # VCVRack_CableControl
-A virtual cable controller for VCVRack which requires nothing more than a Raspberry Pi Pico (or other CircuitPython compatible Microcontroller). Written in CircuitPython. Provides 26x physical sockets which can be distribtued as inputs or outputs via entries at lines 23 & 27 of code.py, which are remapped to MIDI CC gates (1-indexed sequentially, outputs then inputs). MIDI Output channel is set at end of line 17 (0-indexed in code, becomes 1-indexed in reality) 
+A virtual cable controller for VCVRack which requires nothing more than a Raspberry Pi Pico (or other CircuitPython compatible Microcontroller). Written in CircuitPython. Provides 26x physical sockets which can be distributed as inputs or outputs via entries at lines 23 & 27 of code.py, which are then remapped to MIDI CC gates (1-indexed sequentially, outputs then inputs). MIDI Output channel is set at end of line 17 (0-indexed in code, becomes 1-indexed in reality) 
 
 Use with Stoermelder's (experimental) **VCVRack-PackTau** T7 modules which maps MIDI CC Gates to module i/o ports in VCVRack: https://github.com/stoermelder/vcvrack-packtau
 
