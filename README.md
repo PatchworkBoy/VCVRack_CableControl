@@ -27,7 +27,7 @@ If running multiples as it stands, change MIDI channels in code and **don't link
 * Grab Pack-Tau (https://github.com/stoermelder/vcvrack-packtau/releases) and manually install.
 * Copy code.py & lib/ folder to Pi Pico running CircuitPython
 * Open examples/t7-ctrl_example.vcv in VCVRack (requires Pack-Tau, BogAudio, Instruo & VCV Fundamentals)
-* Short any of GPIO2-14 to GPIO15-26. **Be careful NOT to inadvertently short to RUN or GND.**
+* Short any of GPIO2-14 to GPIO15-26. **Be careful NOT to inadvertently short to RUN or GND, which will crash the Pico (no damage) - unplug / replug to restart it**
 
 To load a custom map, click ports on your modules and watch T7-Assistant module. Note the moduleId and portId (you can highlight and copy them from the T7-Assistant display) 
 
