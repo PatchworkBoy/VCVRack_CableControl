@@ -12,7 +12,7 @@ level 127.
 
 To make a physical patch bay: Attach tip connector of 3.5mm socket to each GPIO pin. Short with mono 3.5mm patch leads. Done!
 
-GPIO0 & 1 are skipped as I intend to use the UART to link multiple Picos to one "master". Really any expansion needs doing over i2c or SPI. This is all just a quick dirty example. They can be added into the lists for 28x total physical sockets.
+GPIO0 & 1 are skipped as I intend to use these for i2c expansion (see further down this file)
 
 **What's happening on the Pico:** ALL GPIO PINS are set as input with pull-up, defaulting high in the code. GPIO Pins 2 thru 14 are switched to outputs one at a time and pulled low and then GPIO Pins 15 thru 27 are sequentially scanned for any now pulled low (linked). Their state is compared against a statematrix dictionary object - if the state differs, the relevant MIDI CC codes are sent to reflect the change - then the statematrix updated to store the latest current (inverted) state. The current GPIO Output is then switched back to a pulled-up input before moving on to the next output pin. 
 
@@ -48,6 +48,11 @@ Once you've got that done for all the ports in the file (or removed unmapped ent
 **NOTE: T7-MIDI module MUST be adjacent to the right of the T7-CTRL module for MIDI commands to be transmitted from T7-MIDI to T7-CTRL. Select the PiPico midi device in T7-MIDI. For multiple Picos, just add more T7-MIDI modules to the right. All the mapping goes into the single T7-CTRL instance**
 
 Now start shorting your Pins (or if you've added sockets etc, patching your cables) and watch cables appear onscreen between the mapped ports, and disappear when you unshort.
+
+## Expansion
+MCP23017 modules over i2c provide additional banks of 16 digital GPIO at a time, so can be used [raw](https://www.adafruit.com/product/732) or [in HAT format](https://thepihut.com/products/modmypi-mcp23017-phat-16-channel-io-expansion-zero) (and just link the i2c / power / gnd pins up). Up to 8 can be added to get a total 156 physical sockets on one Pico. [Adafruit provide a library for CircuitPython](https://learn.adafruit.com/using-mcp23008-mcp23017-with-circuitpython), which would make this the easiest way to expand the code also. Same applies for banks of [ADS1115/1015 modules](https://learn.adafruit.com/adafruit-4-channel-adc-breakouts) to add 4x channels of ADC for sliders & potentiometers per module. BUT, time to loop over the matrix increases so latency *may* creep up.
+
+I'll look into these at somepoint when I'm not so broke... one step at a time. But that should be enough to shove you in the right direction to investigate for yourself (plus I have no shortage of knobs & sliders in my setup already - BCR2000 & BCF2000 fulfil that remit for now).
 
 ### References: 
 * Initial software concept at https://community.vcvrack.com/t/module-to-connect-disconnect-rack-cables-over-midi/9101 - thanks to the fabulous [Stoermelder](https://github.com/stoermelder), [Ligant](https://community.vcvrack.com/u/ligant/summary), and [MudJakub (MidiLar)](https://community.vcvrack.com/u/mudjakub/summary) o'er at VCV communities forum.
